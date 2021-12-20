@@ -2,8 +2,8 @@ window.HUB_EVENTS={ASSET_ADDED:"ASSET_ADDED",ASSET_DELETED:"ASSET_DELETED",ASSET
 
 var colors = ["#A109FF", "#FD372A", "#FED022", "#00C3E6",
              "#A109FF", "#FD372A", "#FED022", "#00C3E6"];
-var prizes = ["TRY AGAIN", " 100% UP TO  300 CAD", "75 FS", "100 FS", "NO WIN", " 50% UP TO 150 CAD", "20 FS", " 75% UP TO 150 CAD"];
-
+var prizes = ["TRY AGAIN", "100% UP TO 300 CAD", "75 FS", "100 FS", "NO WIN", "50% UP TO 150 CAD", "20 FS", "75% UP TO 150 CAD"];
+  
 var startAngle = 0*Math.PI/180;
 var arc = (2 * Math.PI) / colors.length;
 var spinTimeout = null;
@@ -27,7 +27,7 @@ function drawRouletteWheel() {
    
     ctx = canvas.getContext("2d");
     ctx.clearRect(0,0,500,500);
-    ctx.font = 'bold 13px Arial';
+    ctx.font = 'bold 14px Arial';
     ctx.textAlign = "center";
    
     for(var i = 0; i < colors.length; i++) {
@@ -152,9 +152,9 @@ function drawRouletteWheel() {
 var box = document.querySelector("#click");
    
 function spin() {
-  spinAngleStart = 15;
+  spinAngleStart = 12;
   spinTime = 0;
-  spinTimeTotal = 1700;
+  spinTimeTotal = 1770;
   rotateWheel();
   box.classList.toggle("no-click");
 }
@@ -164,7 +164,7 @@ $('#click').click(function(){
 })
 
 function rotateWheel() {
-  spinTime += 7;
+  spinTime += 10;
   if(spinTime >= spinTimeTotal) {
     stopRotateWheel();
       if($('body').hasClass('one') && !$('body').hasClass('two')) {
@@ -194,7 +194,7 @@ function stopRotateWheel() {
   // clearTimeout(spinTimeout);
   // var degrees = startAngle * 180 / Math.PI + 90;
   var degrees = startAngle * 180 / Math.PI + 90;
-  var arcd = arc * 180 / Math.PI;
+  var arcd = arc * 90 / Math.PI;
   var index = Math.floor((360 - degrees % 360) / arcd);
   ans.textContent = prizes[index];
   box.classList.toggle("no-click");
@@ -208,6 +208,7 @@ $('.btn-1').click(function(){
 
 })
 
+
 function $_GET(e,t){return!!(t=t.match(new RegExp(e+"=([^&=]+)")))&&t[1]}
 var getStag = $_GET("stag", window.location.href);
 var stag = "?stag=" + getStag;
@@ -215,7 +216,7 @@ console.log("STAG -" + stag);
 
 
 $('.btn-2').click(function(){     
-    window.location.href = 'https://www.casinokakadu.com/en-CA/users/sign_up' + stag;
+    window.location.href = 'https://abocasino.biz/en-AU/users/sign_up' + stag;
 })
 
 
@@ -227,9 +228,3 @@ function easeOut(t, b, c, d) {
 }
 
 drawRouletteWheel();
-
-
-$(':not(*), :not(.btn-1), ').on('click touchstart', function (e) {
-  e.preventDefault();
-return false;
-});
