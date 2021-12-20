@@ -471,6 +471,11 @@
       text-align: center;
       margin-bottom: 20px;
   }
+
+  .text1 span,
+  .text2 span {
+    color: #f8ca00;
+  }
   
   body .wrapper-popup .none{
       display: none;
